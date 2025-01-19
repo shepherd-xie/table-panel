@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class TableRow {
+
     String name;
     int value;
+
 }
