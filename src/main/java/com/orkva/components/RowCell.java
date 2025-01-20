@@ -9,13 +9,12 @@ import lombok.ToString;
  */
 @AllArgsConstructor
 @ToString
-public abstract class TableCell<T, U extends TableTitle<T>> {
+public abstract class RowCell<T, U extends TableField<T>> {
     public static final char FILLING = ' ';
 
-    protected U tableTitle;
+    protected U tableField;
     protected T value;
 
     public abstract String draw();
 
-    public abstract String drawValue();
 }

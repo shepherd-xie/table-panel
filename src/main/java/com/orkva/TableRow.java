@@ -1,19 +1,18 @@
 package com.orkva;
 
+import com.orkva.components.RowCell;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @author Shepherd Xie
  * @since 2025/1/16
  */
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@AllArgsConstructor
 public class TableRow {
 
-    String name;
-    int value;
+    int number;
+    RowCell[] rowCells;
 
 }
