@@ -4,31 +4,34 @@ import com.orkva.components.TableField;
 
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * @author Shepherd Xie
  * @since 2025/1/20
  */
 public class TableDrawer {
-    private Table table;
     private StringBuilder drawer;
+    private List<TableRow> tableRows;
+    private TableField[] tableFields;
 
-    public TableDrawer(Table table) {
-        this.table = table;
+    public TableDrawer(TableField[] tableFields, List<TableRow> tableRows) {
+        this.tableFields = tableFields;
+        this.tableRows = tableRows;
         this.drawer = new StringBuilder();
     }
 
-    public void draw() {
+    @Override
+    public String toString() {
         drawChartOutline('┌', '┐', '┬', '─');
         drawer.append('\n');
         drawBody();
         drawChartOutline('└', '┘', '┴', '─');
-        System.out.println(drawer);
+        return drawer.toString();
     }
 
-
     private void drawBody() {
-        Iterator<TableRow> iterator = table.getTableRows().iterator();
+        Iterator<TableRow> iterator = tableRows.iterator();
         while (iterator.hasNext()) {
             drawRowData(iterator.next());
 
@@ -43,7 +46,7 @@ public class TableDrawer {
 
     private void drawRowData(TableRow row) {
         drawer.append('│');
-        for (int i = 0; i < table.getTableFields().length; i++) {
+        for (int i = 0; i < tableFields.length; i++) {
             if (i > 0) {
                 drawer.append('│');
             }
@@ -53,7 +56,6 @@ public class TableDrawer {
     }
 
     private void drawChartOutline(char start, char end, char split, char filling) {
-        TableField[] tableFields = table.getTableFields();
         drawer.append(start);
         for (int i = 0; i < tableFields.length; i++) {
             if (i > 0) {

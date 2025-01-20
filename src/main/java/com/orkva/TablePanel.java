@@ -19,8 +19,8 @@ public class TablePanel {
     }
 
     public void draw() {
-        TableDrawer tableDrawer = new TableDrawer(table);
-        tableDrawer.draw();
+        TableDrawer tableDrawer = new TableDrawer(table.getTableFields(), rowSorter.sort(table.getTableRows()));
+        System.out.println(tableDrawer);
     }
 
 }
