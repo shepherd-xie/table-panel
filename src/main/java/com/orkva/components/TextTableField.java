@@ -6,8 +6,8 @@ package com.orkva.components;
  */
 public class TextTableField extends TableField<String> {
 
-    public TextTableField(int id, String name, Alignment alignment) {
-        super(id, name, 0, alignment);
+    public TextTableField(int number, String name, Alignment alignment) {
+        super(number, name, 0, alignment);
     }
 
 
@@ -16,4 +16,5 @@ public class TextTableField extends TableField<String> {
         width = Math.max(width, value.length());
         return new TextRowCell(this, value);
     }
+
 }

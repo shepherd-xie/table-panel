@@ -11,12 +11,13 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @ToString
-public abstract class TableField<T> {
+public abstract class TableField<T extends Comparable<T>> {
 
-    protected int id;
+    protected int number;
     protected String name;
     protected int width;
     protected Alignment alignment;
 
     public abstract RowCell<T, ? extends TableField<T>> createCell(String value);
+
 }

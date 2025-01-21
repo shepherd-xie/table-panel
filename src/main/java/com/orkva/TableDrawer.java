@@ -24,7 +24,6 @@ public class TableDrawer {
     @Override
     public String toString() {
         drawChartOutline('┌', '┐', '┬', '─');
-        drawer.append('\n');
         drawBody();
         drawChartOutline('└', '┘', '┴', '─');
         return drawer.toString();
@@ -40,7 +39,6 @@ public class TableDrawer {
             }
 
             drawChartOutline('├', '┤', '┼', '─');
-            drawer.append('\n');
         }
     }
 
@@ -50,19 +48,25 @@ public class TableDrawer {
             if (i > 0) {
                 drawer.append('│');
             }
-            drawer.append(row.rowCells[i].draw());
+            drawer.append(row.rowCells[tableFields[i].getNumber()].draw());
         }
         drawer.append('│').append('\n');
     }
 
     private void drawChartOutline(char start, char end, char split, char filling) {
         drawer.append(start);
-        for (int i = 0; i < tableFields.length; i++) {
+        List<Character>[] fillings = new List[tableFields.length];
+        for (TableField tableField : tableFields) {
+            fillings[tableField.getNumber()] = Collections.nCopies(tableField.getWidth(), filling);
+        }
+
+        for (int i = 0; i < fillings.length; i++) {
             if (i > 0) {
                 drawer.append(split);
             }
-            Collections.nCopies(tableFields[i].getWidth(), filling).forEach(drawer::append);
+            fillings[i].forEach(drawer::append);
         }
-        drawer.append(end);
+
+        drawer.append(end).append('\n');
     }
 }

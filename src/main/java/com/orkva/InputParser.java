@@ -49,15 +49,14 @@ public class InputParser {
         return new RowSorter(sort, sortBy);
     }
 
-    public Table getTable() {
-        Table table = new Table();
+    public Table fullingTable(Table table) {
         TableField[] tableFields = table.getTableFields();
         List<TableRow> tableRows = table.getTableRows();
         for (int i = 0; i < rows.length; i++) {
             String[] split = rows[i].split(SPLITTER);
             TableRow tableRow = new TableRow(i, new RowCell[tableFields.length]);
-            for (int j = 0; j < split.length; j++) {
-                tableRow.rowCells[j] = tableFields[j].createCell(split[j]);
+            for (TableField tableField : tableFields) {
+                tableRow.rowCells[tableField.getNumber()] = tableField.createCell(split[tableField.getNumber()]);
             }
             tableRows.add(tableRow);
         }

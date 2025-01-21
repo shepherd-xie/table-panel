@@ -9,8 +9,8 @@ public class HistogramField extends TableField<Integer> {
 
     protected int scale;
 
-    public HistogramField(int id, String name, int width, Alignment alignment) {
-        super(id, name, width, alignment);
+    public HistogramField(int number, String name, int width, Alignment alignment) {
+        super(number, name, width, alignment);
     }
 
     @Override
@@ -19,4 +19,5 @@ public class HistogramField extends TableField<Integer> {
         scale = Math.max(scale, intVal);
         return new HistogramRowCell(this, intVal);
     }
+
 }

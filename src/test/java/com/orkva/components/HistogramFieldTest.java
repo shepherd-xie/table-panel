@@ -18,4 +18,5 @@ class HistogramFieldTest {
         log.info("[{}]", tableTitle.createCell("49").draw());
         log.info("[{}]", tableTitle.createCell("10").draw());
     }
+
 }

@@ -19,12 +19,9 @@ public class Table {
     private Sort sort;
     private String sortField;
 
-    public Table() {
+    public Table(TableField... tableFields) {
+        this.tableFields = tableFields;
         tableRows = new ArrayList<>();
-        tableFields = new TableField[]{
-                new TextTableField(0, "Name", Alignment.RIGHT),
-                new HistogramField(1, "Value", 20, Alignment.LEFT)
-        };
     }
 
 }

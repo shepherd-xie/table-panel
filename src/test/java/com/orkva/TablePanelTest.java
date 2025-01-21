@@ -1,8 +1,9 @@
 package com.orkva;
 
+import com.orkva.components.Alignment;
+import com.orkva.components.HistogramField;
+import com.orkva.components.TextTableField;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author Shepherd Xie
@@ -11,12 +12,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class TablePanelTest {
 
     @Test
-    void read() {
-    }
-
-    @Test
     void draw() {
-        TablePanel tablePanel = new TablePanel();
-        tablePanel.read(ClassLoader.getSystemResourceAsStream("testcase.txt")).draw();
+        Table table = new Table(
+                new TextTableField(0, "Name", Alignment.RIGHT),
+                new HistogramField(1, "Value", 20, Alignment.LEFT)
+        );
+        new TablePanel(table)
+                .read(ClassLoader.getSystemResourceAsStream("testcase.txt"))
+                .draw();
     }
 }
