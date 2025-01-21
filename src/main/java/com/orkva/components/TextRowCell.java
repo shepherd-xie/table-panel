@@ -6,8 +6,8 @@ package com.orkva.components;
  */
 public class TextRowCell extends RowCell<String, TextTableField> {
 
-    public TextRowCell(TextTableField tableTitle, String value) {
-        super(tableTitle, value);
+    public TextRowCell(int rowNumber, TextTableField tableField, String value) {
+        super(rowNumber, tableField, value);
     }
 
     @Override

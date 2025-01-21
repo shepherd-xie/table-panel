@@ -12,9 +12,9 @@ public class TextTableField extends TableField<String> {
 
 
     @Override
-    public TextRowCell createCell(String value) {
+    public TextRowCell createCell(int rowNumber, String value) {
         width = Math.max(width, value.length());
-        return new TextRowCell(this, value);
+        return new TextRowCell(rowNumber,this, value);
     }
 
 }

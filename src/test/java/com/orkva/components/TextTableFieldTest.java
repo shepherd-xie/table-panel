@@ -13,8 +13,8 @@ class TextTableFieldTest {
     @Test
     void createCell() {
         TextTableField tableTitle = new TextTableField(0, "Name", Alignment.RIGHT);
-        log.info("{}", tableTitle.createCell("pineapple").draw());
-        log.info("{}", tableTitle.createCell("pen").draw());
-        log.info("{}", tableTitle.createCell("apple").draw());
+        log.info("{}", tableTitle.createCell(0, "pineapple").draw());
+        log.info("{}", tableTitle.createCell(1, "pen").draw());
+        log.info("{}", tableTitle.createCell(2, "apple").draw());
     }
 }

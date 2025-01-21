@@ -14,10 +14,10 @@ public class HistogramField extends TableField<Integer> {
     }
 
     @Override
-    public HistogramRowCell createCell(String value) {
+    public HistogramRowCell createCell(int rowNumber, String value) {
         int intVal = Integer.parseInt(value);
         scale = Math.max(scale, intVal);
-        return new HistogramRowCell(this, intVal);
+        return new HistogramRowCell(rowNumber, this, intVal);
     }
 
 }

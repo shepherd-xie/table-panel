@@ -18,6 +18,6 @@ public abstract class TableField<T extends Comparable<T>> {
     protected int width;
     protected Alignment alignment;
 
-    public abstract RowCell<T, ? extends TableField<T>> createCell(String value);
+    public abstract RowCell<T, ? extends TableField<T>> createCell(int rowNumber, String value);
 
 }

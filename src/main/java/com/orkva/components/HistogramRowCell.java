@@ -9,8 +9,9 @@ import static com.orkva.components.HistogramField.HISTOGRAM_FILLING;
  * @since 2025/1/20
  */
 public class HistogramRowCell extends RowCell<Integer, HistogramField> {
-    public HistogramRowCell(HistogramField tableTitle, Integer value) {
-        super(tableTitle, value);
+
+    public HistogramRowCell(int rowNumber, HistogramField tableField, Integer value) {
+        super(rowNumber, tableField, value);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.orkva;
 
+import com.orkva.components.RowCell;
 import com.orkva.components.Sort;
 import com.orkva.components.TableField;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ public class RowSorter {
                 .filter(tableField -> Objects.equals(sortBy, tableField.getName()))
                 .findFirst()
                 .get();
-        TreeMap<Comparable, Integer> sortMap = new TreeMap<>();
+        TreeMap<RowCell, Integer> sortMap = new TreeMap<>();
         for (TableRow tableRow : table.getTableRows()) {
             sortMap.put(tableRow.rowCells[sortField.getNumber()], tableRow.number);
         }

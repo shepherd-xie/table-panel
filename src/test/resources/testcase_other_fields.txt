@@ -1,0 +1,7 @@
+5
+Color DESC
+apple 5 red
+pen 3 black
+pineapple 10 yellow
+banana 12 yellow
+watermelon 8 colorful

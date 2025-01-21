@@ -52,11 +52,12 @@ public class InputParser {
     public Table fullingTable(Table table) {
         TableField[] tableFields = table.getTableFields();
         List<TableRow> tableRows = table.getTableRows();
+
         for (int i = 0; i < rows.length; i++) {
             String[] split = rows[i].split(SPLITTER);
             TableRow tableRow = new TableRow(i, new RowCell[tableFields.length]);
             for (TableField tableField : tableFields) {
-                tableRow.rowCells[tableField.getNumber()] = tableField.createCell(split[tableField.getNumber()]);
+                tableRow.rowCells[tableField.getNumber()] = tableField.createCell(i, split[tableField.getNumber()]);
             }
             tableRows.add(tableRow);
         }

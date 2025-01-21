@@ -15,6 +15,7 @@ public abstract class RowCell<T extends Comparable<T>, U extends TableField<T>>
         implements Comparable<RowCell<T, U>> {
     public static final char FILLING = ' ';
 
+    protected int rowNumber;
     protected U tableField;
     protected T value;
 
@@ -25,6 +26,7 @@ public abstract class RowCell<T extends Comparable<T>, U extends TableField<T>>
         if (!Objects.equals(tableField, o.tableField)) {
             throw new IllegalArgumentException("Another table field.");
         }
-        return value.compareTo(o.value);
+        int compared = value.compareTo(o.value);
+        return compared == 0 ? rowNumber - o.rowNumber : compared;
     }
 }

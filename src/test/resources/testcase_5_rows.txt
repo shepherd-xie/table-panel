@@ -1,0 +1,7 @@
+5
+Name ASC
+apple 5
+pen 3
+pineapple 10
+banana 12
+watermelon 8

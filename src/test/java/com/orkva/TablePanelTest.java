@@ -21,4 +21,27 @@ class TablePanelTest {
                 .read(ClassLoader.getSystemResourceAsStream("testcase.txt"))
                 .draw();
     }
+
+    @Test
+    void draw5Rows() {
+        Table table = new Table(
+                new TextTableField(0, "Name", Alignment.RIGHT),
+                new HistogramField(1, "Value", 20, Alignment.LEFT)
+        );
+        new TablePanel(table)
+                .read(ClassLoader.getSystemResourceAsStream("testcase_5_rows.txt"))
+                .draw();
+    }
+
+    @Test
+    void drawOtherFields() {
+        Table table = new Table(
+                new TextTableField(0, "Name", Alignment.RIGHT),
+                new HistogramField(1, "Value", 20, Alignment.LEFT),
+                new TextTableField(2, "Color", Alignment.CENTER)
+        );
+        new TablePanel(table)
+                .read(ClassLoader.getSystemResourceAsStream("testcase_other_fields.txt"))
+                .draw();
+    }
 }

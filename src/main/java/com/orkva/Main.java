@@ -1,7 +1,8 @@
 package com.orkva;
 
-import java.util.Arrays;
-import java.util.Collections;
+import com.orkva.components.Alignment;
+import com.orkva.components.HistogramField;
+import com.orkva.components.TextTableField;
 
 /**
  * @author Shepherd Xie
@@ -9,7 +10,12 @@ import java.util.Collections;
  */
 public class Main {
     public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder();
-        System.out.println();
+        Table table = new Table(
+                new TextTableField(0, "Name", Alignment.RIGHT),
+                new HistogramField(1, "Value", 20, Alignment.LEFT)
+        );
+        new TablePanel(table)
+                .read(System.in)
+                .draw();
     }
 }
